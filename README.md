@@ -12,4 +12,6 @@ User story: As a user I want to input a search function which when we input a ke
 AS A User
 I WANT to search information in the form of visual and text formate using one search engine
 SO THAT I can have multiple options to select from.
+Mock-up link http://framebox.org/Apotk-XdpgZU
+
 ```
