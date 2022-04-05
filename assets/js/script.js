@@ -63,3 +63,77 @@ function clearSearchDisplay(){
 
 displaySearch()
 
+// uploading all the changes for the Youtube API 
+var tableBody = document.getElementById("repo-table");
+var fetchButton = document.getElementById("fetch-button");
+var getVideoEl = document.getElementById("getVideo");
+var video1 = document.getElementById("youtube");
+
+var fromSubmitVideo = function (event) {
+    event.preventDefault();
+
+    var getVideo = getVideoEl.value.trim();
+
+    if(getVideo) {
+        getApi(getVideo);
+
+        // get the videos in the div container
+        getVideoEl.value = "";
+    } else {
+        //alert("please enter a video name");
+        
+    }
+};
+
+
+function getApi(search) {
+    
+     var requestUrl = "https://www.googleapis.com/youtube/v3/search?q="+ search + "&part=snippet&key=AIzaSyBBtryWRyikhDXMhrOJxfKLlaqTIu7MGGU";
+
+   
+
+    fetch(requestUrl)
+        .then(function (response){
+            return response.json();
+        })
+        .then(function (data){
+            console.log(data)
+          
+
+         //this is for the youtube API
+            for (var i = 0; i <data.items.length; i++){
+                if( i === 0 ){
+                    var createIframe = document.createElement("iframe");
+                    createIframe.setAttribute("src" , "https://www.youtube.com/embed/" + data.items[i].id.videoId);
+                    var createTableRow1 = document.createElement("tr");
+                    var tableData2 = document.createElement("td");
+                    tableData2.appendChild(createIframe);
+                    createTableRow1.appendChild(tableData2);
+                    tableBody.appendChild(createTableRow1);
+                } else {
+
+                    var createTableRow = document.createElement("tr");
+                    var tableData = document.createElement("td");
+                    var link = document.createElement("a");
+                    var title = document.createElement("h4");
+    
+                    link.textContent = ("https://www.youtube.com/watch?v=" + data.items[i].id.videoId);
+                    link.href= "https://www.youtube.com/watch?v=" + data.items[i].id.videoId;
+                    title.textContent = data.items[i].snippet.title;
+                     console.log(title);
+                    
+    
+                    tableData.appendChild(link);
+                    createTableRow.appendChild(tableData);
+                    tableBody.appendChild(createTableRow);
+                    //console.log(data.items[i].id.videoId);
+                }
+
+               
+           }
+
+               
+        });
+}
+
+fetchButton.addEventListener("click", fromSubmitVideo);
