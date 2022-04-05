@@ -21,7 +21,7 @@ body{
     flex-wrap: wrap;
     background-color: var(--bg-light);
     font-family:'IBM Plex Sans Arabic', sans-serif;
-    ;
+    /* background-image: url(/Users/kyliegilbert/project---3/assets/images/Wikipedia_logo_165x125.png); */
 }
 
 header{
@@ -54,16 +54,20 @@ h3 {
 }
 
 .box {
-    height: 300px;
+    height: 100%;
     width:60%;
     background-color: var(--card-bg);
-    border: 5px solid var(--bg-dark);
+    padding: 10px;
     justify-content: space-around;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 20px;
 }
+
+
 
 form {
     display: block;
-    padding: 40px;
+    
 }
 
 input {
@@ -87,21 +91,79 @@ button{
     font-size: 18px;
 }
 
-.min-100-vh {
-    min-height: 100vh;
+.btn {
+
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: block;
+    width: 100%;
+    background-color: var(--bg-dark);
+    color: var(--bg-light);
+    border-radius: 0.5rem;
+    font-size: 16px;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    
 }
+
+.small-box-search {
+
+    height: 100%;
+    width: 18%;
+    padding: 10px;
+    background-color: var(--card-bg);
+    margin: 10px;
+    justify-content: space-around;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: inline-block;
+}
+
+.small-box-results {
+    height: 100%;
+    width: 70%;
+    background-color: var(--card-bg);
+    margin: 10px;
+    justify-content: space-around;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: inline-block;
+
+}
+
+img {
+    height:100px;
+    width: 100px;
+}
+
+.small {
+    border-bottom: 2px solid var(--bg-dark);
+    padding: 20px;
+}
+
 .align-center {
     align-items: center;
 }
 .justify-center {
     justify-content: center;
 }
-.flex-row {
+.top-row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
+.bottom-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+}
 
 .card {
     margin-bottom: 50px;
@@ -109,4 +171,41 @@ button{
     height: 300px;
     padding: 20px;
     border: 2px solid var(--bg-dark);
+}
+
+.video-display {
+    background-color: var(--formbox);
+    height: 300px;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.wikipedia-display {
+    background-color: var(--formbox);
+    height: 300px;
+    width: 80%;
+    margin: 20px auto;
+}
+
+@media (max-width: 900px) {
+
+    .small-box-results, .small-box-search {
+        margin: 2%;
+    }
+}
+
+@media (max-width: 490px) {
+    .box {
+        flex-direction: column;
+        width: 100%;
+        margin: 20px 10px;
+
+    } 
+    
+    .small-box-results,
+    .small-box-search {
+        flex-direction: column;
+        margin: 20px 10px;
+        width: 100%;
+    }
 }

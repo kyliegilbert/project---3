@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="jquery-ui.min.css">
 
   
 
@@ -17,12 +18,13 @@
 <body>
     <header>
         <h1>
+            <!-- <img src="/Users/kyliegilbert/project---3/assets/images/youtube-logo-hd-8.png" alt="YouTube-logo"> -->
+            <img src="/Users/kyliegilbert/project---3/assets/images/Wikipedia_logo_165x125.png" alt="Wikipedia-logo">
             YouTube and Wikipedia Search
         </h1>
     </header>
-    <div class="flex-row align-center justify-center min-100-vh">
-        <div class="box flex-colum align-center">
-            
+    <div class="top-row justify-center">
+        <div class="box align-center">
             <form class = "search-form">
                 <h3>Input a keyword</h3>
                 <input type="text" class="input-search" name="search" placeholder="Enter search word">
@@ -30,6 +32,28 @@
             </form>
         </div>
     </div>
+    <div class = "bottom-row">
+        <div class = "small-box-search previous-search-words">
+            
+        </div>
+
+        <div class = "flex-column small-box-results">
+            <!-- This div will display the youtube information -->
+            <div class = "video-display flex-column align-center justify-center">
+                video display
+            </div>
+            <!-- This div will display the wikipedia information -->
+            <div class = "wikipedia-display flex-column align-center justify-center">
+                Wikipedia information display
+            </div>
+
+        </div>
+    </div>
+    
+    <script src="./assets/js/script.js"></script>
+    <script src="external/jquery/jquery.js"></script>
+    <script src="jquery-ui.min.js"></script>
+
 </body>
 
 
