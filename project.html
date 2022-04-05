@@ -41,6 +41,25 @@
             <!-- This div will display the youtube information -->
             <div class = "video-display flex-column align-center justify-center">
                 video display
+                <!-- updating below information for Youtube API -->
+                <fieldset>
+                    <legend>Retrieve youtube videos</legend>
+                    <input type="text" name="" id="getVideo" placeholder="Video Name">
+                    <button class="btn btn-danger" id="fetch-button">Click Me</button>
+                    </fieldset>
+                    <table class="card-body table mx-auto my-4">
+                      <tr>
+                        <th>
+                          <p class="my-4">Results</p>
+                        </th>
+                      </tr>
+                        
+                        <tbody id="repo-table" class="mx-auto text-center">
+                        </tbody>
+                        <div id="youtube">
+                
+                        </div>
+                      </table>
             </div>
             <!-- This div will display the wikipedia information -->
             <div class = "wikipedia-display flex-column align-center justify-center">
