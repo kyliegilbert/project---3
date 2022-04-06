@@ -25,7 +25,7 @@ body{
 }
 
 header{
-    padding: 50px;
+    padding: 20px;
     background-color: var(--bg-dark);
     color: var(--bg-light);
     margin-bottom: 20px;
@@ -39,9 +39,16 @@ h1, h2, h3, h4, h5, h6 {
 h1{
     font-size: 50px;
 }
+
 main {
     display: flex;
     flex-wrap: wrap;
+}
+.container {
+    margin: 0%;
+}
+.top-row {
+    justify-content: space-between;
 }
 h3 {
     margin-top: 10px;
@@ -55,11 +62,12 @@ h3 {
 
 .box {
     height: 100%;
-    width:60%;
+    width:70%;
     background-color: var(--card-bg);
     padding: 10px;
     justify-content: space-around;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 2%;
     margin-bottom: 20px;
 }
 
@@ -67,6 +75,7 @@ h3 {
 
 form {
     display: block;
+
     
 }
 
@@ -113,8 +122,8 @@ button{
     width: 18%;
     padding: 10px;
     background-color: var(--card-bg);
-    margin: 10px;
-    justify-content: space-around;
+    margin-right: 2%;
+    
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: inline-block;
 }
@@ -123,7 +132,7 @@ button{
     height: 100%;
     width: 70%;
     background-color: var(--card-bg);
-    margin: 10px;
+    margin-left: 2%;
     justify-content: space-around;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: inline-block;
@@ -140,6 +149,9 @@ img {
     padding: 20px;
 }
 
+iframe{
+    align-items: center;
+}
 .align-center {
     align-items: center;
 }
@@ -181,8 +193,9 @@ img {
 }
 
 .wikipedia-display {
+    align-items: center;
     background-color: var(--formbox);
-    height: 300px;
+    height: 100%;
     width: 80%;
     margin: 20px auto;
 }
@@ -202,10 +215,13 @@ img {
 
     } 
     
-    .small-box-results,
-    .small-box-search {
+    .small-box-results {
         flex-direction: column;
         margin: 20px 10px;
         width: 100%;
     }
+    .small-box-search {
+        display: none;
+    }
+
 }

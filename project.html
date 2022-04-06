@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="jquery-ui.min.css">
+<!-- <link rel="stylesheet" href="jquery-ui.min.css"> -->
 
   
 
@@ -16,62 +16,75 @@
 </head>
 
 <body>
-    <header>
-        <h1>
-            <!-- <img src="/Users/kyliegilbert/project---3/assets/images/youtube-logo-hd-8.png" alt="YouTube-logo"> -->
-            <img src="/Users/kyliegilbert/project---3/assets/images/Wikipedia_logo_165x125.png" alt="Wikipedia-logo">
-            YouTube and Wikipedia Search
-        </h1>
-    </header>
-    <div class="top-row justify-center">
-        <div class="box align-center">
-            <form class = "search-form">
-                <h3>Input a keyword</h3>
-                <input type="text" class="input-search" name="search" placeholder="Enter search word">
-                <button class="search-Btn">search</button>
-            </form>
-        </div>
-    </div>
-    <div class = "bottom-row">
-        <div class = "small-box-search previous-search-words">
-            
-        </div>
-
-        <div class = "flex-column small-box-results">
-            <!-- This div will display the youtube information -->
-            <div class = "video-display flex-column align-center justify-center">
-                video display
-                <!-- updating below information for Youtube API -->
-                <fieldset>
-                    <legend>Retrieve youtube videos</legend>
-                    <input type="text" name="" id="getVideo" placeholder="Video Name">
-                    <button class="btn btn-danger" id="fetch-button">Click Me</button>
-                    </fieldset>
-                    <table class="card-body table mx-auto my-4">
-                      <tr>
-                        <th>
-                          <p class="my-4">Results</p>
-                        </th>
-                      </tr>
-                        
-                        <tbody id="repo-table" class="mx-auto text-center">
-                        </tbody>
-                        <div id="youtube">
-                
-                        </div>
-                      </table>
-            </div>
-            <!-- This div will display the wikipedia information -->
-            <div class = "wikipedia-display flex-column align-center justify-center">
-                Wikipedia information display
-            </div>
-
-        </div>
+  <header>
+    <h1>
+      <!-- <img src="/Users/kyliegilbert/project---3/assets/images/youtube-logo-hd-8.png" alt="YouTube-logo"> -->
+      <!-- <img src="/Users/kyliegilbert/project---3/assets/images/Wikipedia_logo_165x125.png" alt="Wikipedia-logo"> -->
+      YouTube and Wikipedia Search
+    </h1>
+  </header>
+  <div class="container">
+    <div class="top-row">
+      <div class="box align-center">
+        <form class = "search-form">
+          <h3>Input a keyword</h3>
+            <input type="text" class="input-search" name="search" placeholder="Enter search word">
+            <button class="search-Btn" id="fetch-button">search</button>
+        </form>
+              
+      </div>
+      <div class = "small-box-search previous-search-words">
+        <h5>Previous searches</h5>
+      </div>
     </div>
     
-    <script src="./assets/js/script.js"></script>
-    <script src="external/jquery/jquery.js"></script>
-    <script src="jquery-ui.min.js"></script>
+    <div class = "bottom-row">
+          
+  
+      <div class = "flex-column small-box-results">
+              <!-- This div will display the youtube information -->
+              <div class = "flex-column align-center justify-center">
+                  
+                      <table class="card-body table mx-auto my-4">
+                        <tr>
+                          <th>
+                            <h3 class="my-4">YouTube Results</h3>
+                          </th>
+                        </tr>
+                          
+                          <tbody id="repo-table" class="mx-auto text-center">
+                          </tbody>
+                          <div id="youtube">
+                  
+                          </div>
+                        </table>
+              </div>
+              <!-- This div will display the wikipedia information -->
+              <div class = "wikipedia-display flex-column align-center justify-center">
+                <div class="read-wrapper">
+                  <h3>Wikipedia Results</h3>
+                  <div class="read-inner">
+                      <div class="title">
+                          <h3 class="article-title"></h3>
+                      </div>
+                      <div class="description">
+                          <p class="article-description"></p>
+                      </div>
+              
+                  </div>
+              
+              </div>
+              </div>
+  
+          </div>
+      </div>
+    
+
+  </div>
+    
+  <script src="./assets/js/script.js"></script>
+  <!-- <script src="external/jquery/jquery.js"></script>
+  <script src="jquery-ui.min.js"></script> -->
 
 </body>
 
