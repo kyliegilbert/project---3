@@ -4,6 +4,7 @@ const searchInput = document.querySelector(".input-search");
 var tableBody = document.getElementById("repo-table");
 var fetchButton = document.getElementById("fetch-button");
 var video1 = document.getElementById("youtube");
+var wikiReader = document.getElementById("read-inner");
 
 // A key word is entered and when the search button is clicked the function
 // will add the new key work into the list of previous searches
@@ -52,14 +53,17 @@ function getWikipeadiaApi (search) {
    fetch(api)
    .then(response => response.json())
    .then(response => {
-    console.log(response)
+    //console.log(response)
      var searchResults = response.query.search;
-     console.log(searchResults) // array
+     //console.log(searchResults) // array
+     
+     readWrapper.textContent="";
 
      for (let index = 0; index < searchResults.length; index++) {
        const result = searchResults[index];
        const wikiResult = createReadInner(result.title, result.snippet);
        readWrapper.appendChild(wikiResult);
+      
      }
     })
 }
@@ -68,20 +72,20 @@ function getWikipeadiaApi (search) {
 
 searchFormEl.addEventListener('submit', function(event){
   event.preventDefault();
-  console.log(event)
+  //console.log(event)
   var formInputVal = document.querySelector(".input-search").value;
   
-  console.log(formInputVal)
+  //console.log(formInputVal)
   
   // Get stored list of searches from localStorage
   
   var searchWords = JSON.parse(localStorage.getItem("KeyWord"));
   
-  console.log(searchWords)
+  //console.log(searchWords)
 
   // If there were no words in Local Storage the first word is stored
   if (searchWords === null) {
-    console.log(formInputVal);
+    //console.log(formInputVal);
     var inputWord = [];
     inputWord.push(formInputVal);
     localStorage.setItem("KeyWord", JSON.stringify(inputWord));
@@ -118,7 +122,7 @@ function displaySearch(){
       //Apend the search research to the DOM
      
     }
-    
+    localStorage.removeItem("KeyWord");
 
 }
 
@@ -145,14 +149,17 @@ function getYouTubeApi(search) {
             return response.json();
         })
         .then(function (data){
-            console.log(data)
+            //console.log(data)
           
+            tableBody.textContent="";
 
          //this is for the youtube API
             for (var i = 0; i <data.items.length; i++){
                 if( i === 0 ){
                     var createIframe = document.createElement("iframe");
                     createIframe.setAttribute("src" , "https://www.youtube.com/embed/" + data.items[i].id.videoId);
+                    createIframe.setAttribute("width" , "500");
+                    createIframe.setAttribute("height", "300");
                     var createTableRow1 = document.createElement("tr");
                     var tableData2 = document.createElement("td");
                     tableData2.appendChild(createIframe);
@@ -160,7 +167,7 @@ function getYouTubeApi(search) {
                     tableBody.appendChild(createTableRow1);
                 } else {
 
-                    var createTableRow = document.createElement("tr");
+                    var createTableRow = document.createElement("ul");
                     var tableData = document.createElement("td");
                     var link = document.createElement("a");
                     var title = document.createElement("h4");
@@ -168,7 +175,7 @@ function getYouTubeApi(search) {
                     link.textContent = ("https://www.youtube.com/watch?v=" + data.items[i].id.videoId);
                     link.href= "https://www.youtube.com/watch?v=" + data.items[i].id.videoId;
                     title.textContent = data.items[i].snippet.title;
-                     console.log(title);
+                     //console.log(title);
 
                      tableData.appendChild(title);
                     
@@ -179,9 +186,10 @@ function getYouTubeApi(search) {
                     //console.log(data.items[i].id.videoId);
                 }
 
-               
+                
            }
 
                
         });
+
 }
