@@ -115,6 +115,8 @@ function displaySearch(){
       aEl.setAttribute("class", "btn")
       aEl.setAttribute("id", "stored-search")
       list.appendChild(aEl);
+      //Apend the search research to the DOM
+     
     }
     
 
