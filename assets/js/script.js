@@ -18,7 +18,7 @@ console.log (search)
 
 //searching for wikipedia information
 
-function createReadInner(title, desc){
+function createReadInner(title, desc, pageId){
 
   const parent = document.createElement('div');
 
@@ -38,8 +38,23 @@ function createReadInner(title, desc){
   descriptionP.innerHTML = desc;
   descriptionDiv.appendChild(descriptionP)
 
+  const pageDiv = document.createElement('div');
+  pageDiv.classList.add('description')
+
+  const pageP = document.createElement('p');
+  pageP.classList.add('article-description');
+  pageDiv.appendChild(pageP)
+
+  const link = document.createElement("a");
+
+
+  link.textContent = ('https://en.wikipedia.org/?curid=' + pageId);
+  link.href= 'https://en.wikipedia.org/?curid=' + pageId;
+  pageDiv.appendChild(link)
+
   parent.appendChild(titleDiv)
-  parent.appendChild(descriptionDiv);
+  parent.appendChild(descriptionDiv)
+  parent.appendChild (pageDiv);
   //don't think we need to return anything here? 
   return parent;
 
@@ -48,7 +63,7 @@ function createReadInner(title, desc){
 
 function getWikipeadiaApi (search) {
     
-    var api =  `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=5&srsearch=${search}`;
+    var api =  `https://en.wikipedia.org/w/api.php?action=query&list=search&srprop=snippet&format=json&origin=*&utf8=&srsearch=${search}`;
   
    fetch(api)
    .then(response => response.json())
@@ -61,13 +76,12 @@ function getWikipeadiaApi (search) {
 
      for (let index = 0; index < searchResults.length; index++) {
        const result = searchResults[index];
-       const wikiResult = createReadInner(result.title, result.snippet);
+       const wikiResult = createReadInner(result.title, result.snippet, result.pageid);
        readWrapper.appendChild(wikiResult);
       
      }
     })
 }
-
 
 
 searchFormEl.addEventListener('submit', function(event){
