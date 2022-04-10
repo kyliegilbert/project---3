@@ -31,7 +31,7 @@ function createReadInner(title, desc){
   titleDiv.appendChild(titleH3)
 
   const descriptionDiv = document.createElement('div');
-  descriptionDiv.classList.add('description')
+  descriptionDiv.classList.add['description']
 
   const descriptionP = document.createElement('p');
   descriptionP.classList.add('article-description');
