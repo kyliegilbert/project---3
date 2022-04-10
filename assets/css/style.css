@@ -28,7 +28,7 @@ header{
     padding: 20px;
     background-color: var(--bg-dark);
     color: var(--bg-light);
-    margin-bottom: 20px;
+
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -139,9 +139,15 @@ button{
 
 }
 
-img {
+.picture {
+    background-image: url(../images/background.jpeg);
+    margin-bottom: 25px;
+    
+    /* background-size: cover; */
+    background-position: center;
+    background-color: var(--bg-light);
     height:100px;
-    width: 100px;
+    width: 100%;
 }
 
 .small {
@@ -202,9 +208,9 @@ iframe{
 
 @media (max-width: 900px) {
 
-    .small-box-results, .small-box-search {
+    /* .small-box-results, .small-box-search {
         margin: 2%;
-    }
+    } */
 }
 
 @media (max-width: 490px) {
