@@ -5,6 +5,7 @@ var tableBody = document.getElementById("repo-table");
 var fetchButton = document.getElementById("fetch-button");
 var video1 = document.getElementById("youtube");
 var wikiReader = document.getElementById("read-inner");
+var previousSearchEl = document.querySelector(".previous-search-words")
 
 // A key word is entered and when the search button is clicked the function
 // will add the new key work into the list of previous searches
@@ -13,9 +14,19 @@ const title_elem = document.querySelector(".article-title");
 const description_elem = document.querySelector(".article-description");
 const readWrapper = document.querySelector('.read-wrapper');
 
-var search = window.location.search;
-console.log (search)
+// var search = window.location.search;
+// console.log (search)
 
+
+previousSearchEl.addEventListener('click', function(event){
+  console.log(previousSearchEl)
+          console.log(event.target)
+          console.log(event.target.innerHTML)
+          var prevSearch = event.target.innerHTML
+          getWikipeadiaApi(prevSearch)
+          getYouTubeApi(prevSearch)
+
+})
 //searching for wikipedia information
 
 function createReadInner(title, desc, pageId){
@@ -89,17 +100,12 @@ searchFormEl.addEventListener('submit', function(event){
   //console.log(event)
   var formInputVal = document.querySelector(".input-search").value;
   
-  //console.log(formInputVal)
-  
   // Get stored list of searches from localStorage
   
   var searchWords = JSON.parse(localStorage.getItem("KeyWord"));
-  
-  //console.log(searchWords)
 
   // If there were no words in Local Storage the first word is stored
   if (searchWords === null) {
-    //console.log(formInputVal);
     var inputWord = [];
     inputWord.push(formInputVal);
     localStorage.setItem("KeyWord", JSON.stringify(inputWord));
@@ -125,8 +131,10 @@ searchFormEl.addEventListener('submit', function(event){
 function displaySearch(){
     
     var storedSearch = JSON.parse(localStorage.getItem("KeyWord"));
-    
-    for(i=0;i<storedSearch.length;i++) {
+    if (storedSearch===null) {
+      return;
+    }else {
+      for(i=0;i<storedSearch.length;i++) {
       var list = document.querySelector(".previous-search-words")
       var aEl=document.createElement("a")
       aEl.textContent = storedSearch[i];      
@@ -134,7 +142,9 @@ function displaySearch(){
       aEl.setAttribute("id", "stored-search")
       list.appendChild(aEl);
     }
-    localStorage.removeItem("KeyWord");
+    // localStorage.removeItem("KeyWord");
+    }
+    
 
 }
 
