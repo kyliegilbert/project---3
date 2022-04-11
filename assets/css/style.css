@@ -204,6 +204,9 @@ iframe{
     width: 80%;
     margin: 20px auto;
 }
+.small-box-search {
+    cursor: pointer;
+}
 
 @media (max-width: 900px) {
     .box {
