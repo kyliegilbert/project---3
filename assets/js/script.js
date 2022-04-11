@@ -113,17 +113,21 @@ searchFormEl.addEventListener('submit', function(event){
     getYouTubeApi(formInputVal);
     getWikipeadiaApi(formInputVal);
     
+  }else if(!searchWords.includes(formInputVal)) {
 
-
+      searchWords.unshift(formInputVal);
+      localStorage.setItem("KeyWord", JSON.stringify(searchWords));
+      clearSearchDisplay();
+      displaySearch();
+      getYouTubeApi(formInputVal)
+      getWikipeadiaApi(formInputVal)
   }else {
-    searchWords.unshift(formInputVal);
-    localStorage.setItem("KeyWord", JSON.stringify(searchWords));
-    clearSearchDisplay();
-    displaySearch();
     getYouTubeApi(formInputVal)
     getWikipeadiaApi(formInputVal)
-
   }
+    
+
+  
 
 });
     
@@ -154,6 +158,9 @@ function clearSearchDisplay(){
     while(list.firstChild){
         list.removeChild(list.firstChild)
     }
+    var h5El = document.createElement("h5")
+    h5El.textContent = "Previous searches"
+    list.appendChild(h5El)
 
 }
 
