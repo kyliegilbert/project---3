@@ -8,10 +8,22 @@ User story: As a user I want to input a search function which when we input a ke
 
 ## User Story
 
-```
-AS A User
-I WANT to search information in the form of visual and text formate using one search engine
-SO THAT I can have multiple options to select from.
-Mock-up link http://framebox.org/Apotk-XdpgZU
+User story: As a user, I would like  search about a thing or a person and be presented with  collated and organised information from youtube and wikipedia such that I do not have to visit multiple websites to gather the same information.
 
-Test
+
+##  https://kartavya99.github.io/project---3/
+
+
+## Technologies used: 
+### Java Script
+### Jquery UI
+### YouTube API
+### Wikipedia API
+### Local storage to save past searches
+
+<img src = "assets/images/Screenshot.png" width ="400">
+
+## Frame layout
+### Mock-up link http://framebox.org/Apotk-XdpgZU
+
+

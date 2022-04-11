@@ -146,7 +146,7 @@ function displaySearch(){
       aEl.setAttribute("id", "stored-search")
       list.appendChild(aEl);
     }
-    // localStorage.removeItem("KeyWord");
+     //localStorage.removeItem("KeyWord");
     }
     
 
